@@ -1,0 +1,19 @@
+#This file is actually ".git/config", but copied as "git-config" for illustration purposes
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+	ignorecase = true
+	precomposeunicode = true
+[remote "origin"]
+	url = https://mujdricz@gitlab.cl.uni-heidelberg.de/mujdricza/git-template.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "master"]
+	remote = origin
+	merge = refs/heads/master
+[color]
+	ui = true
+[user]
+	name = mujdricz
+	email = mujdricza@cl.uni-heidelberg.de

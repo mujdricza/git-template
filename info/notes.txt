@@ -1,0 +1,14 @@
+
+NOTE
+
+After renaming a project, don't forget to adjust .git/config:
+
+Message e.g. for the Abschlussphase project which wos renamed:
+remote: Project 'mujdricza/Abschlussphase' was moved to 'studienberatung/Abschlussphase'.
+remote: 
+remote: Please update your Git remote:
+remote: 
+remote:   git remote set-url origin https://gitlab.cl.uni-heidelberg.de/studienberatung/Abschlussphase.git
+To https://gitlab.cl.uni-heidelberg.de/mujdricza/Abschlussphase.git
+
+--> to adjust [remote "origin"] / url

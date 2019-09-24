@@ -1,0 +1,4 @@
+# NOTE that empty directories cannot be tracked by git. 
+# -> Solution: Set an empty file like this one into the otherwise empty folder to make the folder committable.
+# NOTE that I prefer the file name ".keep" for this purpose.
+
