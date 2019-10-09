@@ -39,7 +39,7 @@ __pycache__/
 # for PyCharm
 .idea/
 # for NetBeans
-/nbproject/private/
+**/nbproject/private/
 /build/
 nb-confiburation.xml
 # further
