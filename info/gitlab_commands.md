@@ -251,3 +251,58 @@ Recommendations on Auto DevOps and Pipelines
 - Deactivate Auto DevOps (direct at the main view of the project; or in Settings ...(?))
 - Deactivate the Pipelines (Settings / General / Permissions / Pipelines: deactivate it)
 
+
+## Tag
+
+Source: <https://git-scm.com/book/en/v2/Git-Basics-Tagging>
+
+Like most VCSs, Git has the ability to tag specific points in a repository’s history as being important. Typically, people use this functionality to mark release points (v1.0, v2.0 and so on).
+
+**Important**: By default, the `git push` command doesn’t transfer tags to remote servers. You will have to explicitly push tags to a shared server after you have created them. This process is just like sharing remote branches — you can run `git push origin <tagname>`.
+  * If you have a lot of tags that you want to push up at once, you can also use the `--tags` option to the git push command. This will transfer all of your tags to the remote server that are not already there.
+
+Git supports two types of tags: lightweight and annotated.
+
+A lightweight tag is very much like a branch that doesn’t change — it’s just a pointer to a specific commit.
+
+Annotated tags, however, are stored as full objects in the Git database. They’re checksummed; contain the tagger name, email, and date; have a tagging message; and can be signed and verified with GNU Privacy Guard (GPG). It’s generally recommended that you create annotated tags so you can have all this information; but if you want a temporary tag or for some reason don’t want to keep the other information, lightweight tags are available too.
+
+
+See tags: `git tag`, with possible RE-search: option `-l` or `--list`: `git tag -l "v1.8.5*"`
+
+Annotated tags: option `-a`
+
+```
+git tag -a v1.4 -m "my version 1.4"
+
+git show v1.4
+
+git push origin v1.4
+
+git push origin --tags
+```
+
+Tagging later:
+
+To tag a previous commit, you specify the commit checksum (or the first part of it) at the end of the command:
+```
+git log --pretty=oneline
+
+git tag -a v1.2 9fceb02
+
+```
+
+
+
+To delete a tag on your local repository, you can use `git tag -d <tagname>`. To delete the tag from remote server, use `git push origin --delete <tagname>`.
+
+```
+git tag -d v1.4-lw
+
+git push origin --delete <tagname>
+```
+
+
+If you want to view the versions of files a tag is pointing to, you can do a `git checkout <tagname>` of that tag, although this puts your repository in “detached HEAD” state, which has some ill side effects.
+To make a new branch with that tag: `git checkout -b <new-branch>`.
+
