@@ -1,0 +1,28 @@
+https://stackoverflow.com/questions/307828/how-do-you-fix-a-bad-merge-and-replay-your-good-commits-onto-a-fixed-merge
+
+If you accidentally made a change (such as adding a file) in your previous commit, and you don't want the history of that change to exist anymore, then you can simply amend the previous commit to remove the file from it:
+
+git rm <file> # !! THIS REMOVES THE FILE FROM THE LOCAL REPOSITORY, TOO !!
+git commit --amend --no-edit
+
+DID NOT WORK
+---
+
+NOT TRIED
+
+Just to add that to Charles Bailey's solution, I just used a git rebase -i to remove unwanted files from an earlier commit and it worked like a charm. The steps:
+
+# Pick your commit with 'e'
+$ git rebase -i
+
+# Perform as many removes as necessary
+$ git rm project/code/file.txt
+
+# amend the commit
+$ git commit --amend
+
+# continue with rebase
+$ git rebase --continue
+
+
+

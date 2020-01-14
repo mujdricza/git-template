@@ -1,0 +1,45 @@
+dyn191:eml-ws18 eva$ cd die_pragmatischen_4/
+dyn191:die_pragmatischen_4 eva$ git pull
+remote: Enumerating objects: 18, done.
+remote: Counting objects: 100% (15/15), done.
+remote: Compressing objects: 100% (10/10), done.
+remote: Total 10 (delta 6), reused 0 (delta 0)
+Unpacking objects: 100% (10/10), done.
+From https://gitlab.cl.uni-heidelberg.de/eml/ws18/die_pragmatischen_4
+   83bf1a1..0792848  dev        -> origin/dev
+Updating 83bf1a1..0792848
+Fast-forward
+ .gitignore  |  2 +-
+ README.md   | 33 ++++++++++++++++++---------------
+ local_setup |  4 ++--
+ 3 files changed, 21 insertions(+), 18 deletions(-)
+dyn191:die_pragmatischen_4 eva$ git add _feedback_emm_/
+dyn191:die_pragmatischen_4 eva$ git commit -m "feedback to status report [EMM]"
+[dev 6467a63] feedback to status report [EMM]
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 _feedback_emm_/status_report1_EMM20181217.pdf
+ create mode 100644 _feedback_emm_/status_report1_EMM20181217_print.pdf
+dyn191:die_pragmatischen_4 eva$ git push
+Counting objects: 5, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (5/5), 1.80 MiB | 9.03 MiB/s, done.
+Total 5 (delta 1), reused 0 (delta 0)
+remote: Project 'eml/ws18/die_pragmatischen_4' was moved to 'eml/ws18/Blockcluster'.
+remote: 
+remote: Please update your Git remote:
+remote: 
+remote:   git remote set-url origin https://gitlab.cl.uni-heidelberg.de/eml/ws18/Blockcluster.git
+To https://gitlab.cl.uni-heidelberg.de/eml/ws18/die_pragmatischen_4.git
+   0792848..6467a63  dev -> dev
+dyn191:die_pragmatischen_4 eva$ git remote set-url origin https://gitlab.cl.uni-heidelberg.de/eml/ws18/Blockcluster.git
+dyn191:die_pragmatischen_4 eva$ cd ../
+dyn191:eml-ws18 eva$ mv die_pragmatischen_4/ blockcluster
+dyn191:eml-ws18 eva$ ls
+blockcluster            cloli                   malinaut                sandbox
+brothers_of_destruction farbcode.txt            milako                  wusegi
+dyn191:eml-ws18 eva$ cd blockcluster/
+dyn191:blockcluster eva$ ls
+README.md        data             local_setup      resources        weka_HA
+_feedback_emm_   docs             requirements.txt src
+dyn191:blockcluster eva$ 

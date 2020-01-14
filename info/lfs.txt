@@ -1,0 +1,131 @@
+mujdricz@CLuster:~/srl4srl_Mate++/github/MATEpp-models$ ls -lha ../_MATEpp-models/
+total 2,3G
+drwxr-xr-x  3 mujdricz mitarb 4,0K Dez 18 13:53 .
+drwxr-xr-x 10 mujdricz mitarb 4,0K Dez 18 14:31 ..
+-rw-r--r--  1 mujdricz mitarb 2,8M Dez 18 13:53 CoNLL2009-ST-English-ALL.anna-3.3.lemmatizer.model
+-rw-r--r--  1 mujdricz mitarb 9,8M Dez 18 13:53 CoNLL2009-ST-English-ALL.anna-3.3.postagger.model
+-rw-r--r--  1 mujdricz mitarb 112M Dez 18 13:53 CoNLL2009-ST-English-ALL.anna-3.3.srl-4.1.srl.model
+-rwxr-xr-x  1 mujdricz mitarb 2,8M Dez 18 13:53 CoNLL2009-ST-English.lemmatizer.model
+-rwxr-xr-x  1 mujdricz mitarb  99M Dez 18 13:53 CoNLL2009-ST-English.parser.model
+-rwxr-xr-x  1 mujdricz mitarb 9,8M Dez 18 13:53 CoNLL2009-ST-English.postagger.model
+-rwxr-xr-x  1 mujdricz mitarb 112M Dez 18 13:53 CoNLL2009-ST-English.srl.model
+-rw-r--r--  1 mujdricz mitarb 832K Dez 18 13:53 de-token.bin
+-rw-r--r--  1 mujdricz mitarb  93M Dez 18 13:53 english-parser-graph-based-v3.model
+drwxr-xr-x  8 mujdricz mitarb 4,0K Dez 18 14:23 .git
+-rw-r--r--  1 mujdricz mitarb 1,5K Dez 18 13:52 .gitignore
+-rw-r--r--  1 mujdricz mitarb  186 Dez 18 13:53 lemma-ger
+-rw-r--r--  1 mujdricz mitarb 6,6M Dez 18 13:53 lemma-ger-3.6.model
+-rw-r--r--  1 mujdricz mitarb  20M Dez 18 13:53 morphology-ger-3.6.model
+-rw-r--r--  1 mujdricz mitarb  249 Dez 18 13:53 parse-german
+-rw-r--r--  1 mujdricz mitarb  89M Dez 18 13:53 parser-ger-3.6.model
+-rw-r--r--  1 mujdricz mitarb 1,3K Dez 18 13:53 pet-ger-kk0
+-rw-r--r--  1 mujdricz mitarb 350M Dez 18 13:53 pet-ger-S2a-40-0.25-0.1-2-2-ht4-hm4-kk0
+-rw-r--r--  1 mujdricz mitarb   95 Dez 18 13:52 README.md
+-rwxr-xr-x  1 mujdricz mitarb 400M Dez 18 13:53 srl-EMNLP14+fs-eng.model
+-rw-r--r--  1 mujdricz mitarb  47M Dez 18 13:53 srl-EMNLP14+fs-extger.model
+-rw-r--r--  1 mujdricz mitarb 154M Dez 18 13:53 srl-EMNLP14+fs-ger.model
+-rw-r--r--  1 mujdricz mitarb 750M Dez 18 13:53 srl-TACL15-eng.model
+-rw-r--r--  1 mujdricz mitarb 7,9M Dez 18 13:53 tag-ger-3.6.model
+
+
+
+https://packagecloud.io/github/git-lfs/packages/debian/stretch/git-lfs_2.9.2_amd64.deb/download
+
+
+git lfs track "*.psd"
+
+git add .gitattributes
+git commit -m "track *.psd files using Git LFS"
+
+git add my.psd
+git commit -m "add psd"
+
+
+#to migrate existing large files in your history to use Git LFS
+git lfs migrate import --include="*.psd"
+
+# cqonfirm:
+git lfs ls-files
+...
+
+----
+
+# install for a repository only:
+#https://github.com/git-lfs/git-lfs/wiki/Installation
+
+---
+
+install on conda
+#https://anaconda.org/conda-forge/git-lfs
+conda install -c conda-forge git-lfs
+git lfs install --local
+
+
+mujdricz@CLuster:~/miniconda3$ conda install -c conda-forge git-lfs
+
+Collecting package metadata (current_repodata.json): done
+Solving environment: done
+
+
+==> WARNING: A newer version of conda exists. <==
+  current version: 4.7.10
+  latest version: 4.8.0
+
+Please update conda by running
+
+    $ conda update -n base -c defaults conda
+
+
+
+## Package Plan ##
+
+  environment location: /home/mitarb/mujdricz/miniconda3
+
+  added / updated specs:
+    - git-lfs
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    ca-certificates-2019.11.28 |       hecc5488_0         145 KB  conda-forge
+    certifi-2019.11.28         |           py37_0         148 KB  conda-forge
+    conda-4.8.0                |           py37_1         3.0 MB  conda-forge
+    git-lfs-2.9.2              |                0         3.8 MB  conda-forge
+    openssl-1.1.1d             |       h516909a_0         2.1 MB  conda-forge
+    ------------------------------------------------------------
+                                           Total:         9.2 MB
+
+The following NEW packages will be INSTALLED:
+
+  git-lfs            conda-forge/linux-64::git-lfs-2.9.2-0
+
+The following packages will be UPDATED:
+
+  ca-certificates    pkgs/main::ca-certificates-2019.5.15-0 --> conda-forge::ca-certificates-2019.11.28-hecc5488_0
+  certifi               pkgs/main::certifi-2019.6.16-py37_1 --> conda-forge::certifi-2019.11.28-py37_0
+  conda                      pkgs/main::conda-4.7.10-py37_0 --> conda-forge::conda-4.8.0-py37_1
+  openssl              pkgs/main::openssl-1.1.1c-h7b6447c_1 --> conda-forge::openssl-1.1.1d-h516909a_0
+
+
+Proceed ([y]/n)? 
+
+Downloading and Extracting Packages
+git-lfs-2.9.2        | 3.8 MB    | ##################################### | 100% 
+ca-certificates-2019 | 145 KB    | ##################################### | 100% 
+conda-4.8.0          | 3.0 MB    | ##################################### | 100% 
+certifi-2019.11.28   | 148 KB    | ##################################### | 100% 
+openssl-1.1.1d       | 2.1 MB    | ##################################### | 100% 
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
+
+---
+
+
+Git LFS installation without admin rights
+
+If you do not have rights to install a system package (e.g. on cluster systems) you can download a precompiled git-lfs executable. Simply put it into your PATH and everything should work (remember to run git lfs install once!). See also: https://github.com/git-lfs/git-lfs/wiki/Installation#other
+
+https://www.opengeosys.org/docs/devguide/getting-started/prerequisites/

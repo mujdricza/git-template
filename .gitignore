@@ -12,6 +12,7 @@
 #$ git rm -r --cached .
 #$ git add .
 #$ git commit -m 'Update .gitignore'
+#$ git push
 
 
 # Special subfolders or files  #
@@ -39,14 +40,17 @@ __pycache__/
 # for PyCharm
 .idea/
 # for NetBeans
-**/nbproject/private/
-/build/
+**/nbproject/
+build/
 nb-confiburation.xml
+build.xml
+manifest.mf
+nblibraries.properties
+CopyLibs/
+
 # further
 #dependencies.xml
 #pom.xml
-#build.xml
-#manifest.mf
 
 
 # LaTeX #
