@@ -125,7 +125,10 @@ git merge mybranch
 git branch -d mybranch
 ```
 
-
+<https://devconnected.com/how-to-set-upstream-branch-on-git/>
+```
+git push -u origin mybranch
+```
 
 See
 - [https://de.atlassian.com/git/tutorials/using-branches/git-checkout](https://de.atlassian.com/git/tutorials/using-branches/git-checkout)
