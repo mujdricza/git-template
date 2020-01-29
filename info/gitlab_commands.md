@@ -167,6 +167,22 @@ To reset only one file:
 `git checkout HEAD -- my-file.txt`
 
 
+- Another recommendation: <https://www.freecodecamp.org/forum/t/git-pull-how-to-override-local-files-with-git-pull/13216>
+
+```
+git fetch --all
+git reset --hard origin/master   # <remote>/<branch>
+
+e.g.:
+eva@laptop:/mnt/d/uni/GSRL/github/srl4srl-results$ git fetch --all
+Fetching origin
+Password for 'https://mujdricza@github.com':
+eva@laptop:/mnt/d/uni/GSRL/github/srl4srl-results$ git reset --hard origin/master
+Checking out files: 100% (903/903), done.
+HEAD is now at a795dfd 20200128
+eva@laptop:/mnt/d/uni/GSRL/github/srl4srl-results$
+```
+
 ## gitignore
 
 The repository-specific option to ignore specific files or folders is to create a file named `.gitignore` in the root folder of the repository.
@@ -203,6 +219,24 @@ $ git rm -r --cached .
 $ git add .
 $ git commit -m 'Update .gitignore'
 ```
+
+- Remove tracked: for only a file or folder:
+
+To stop tracking a file you need to remove it from the index. This can be achieved with this command.
+
+```
+git rm --cached <file>
+```
+
+If you want to remove a whole folder, you need to remove all files in it recursively.
+
+```
+git rm -r --cached <folder>
+```
+
+The removal of the file from the head revision will happen on the next commit.
+
+WARNING: While this will not remove the physical file from your local, it will remove the files from other developers machines on next git pull.
 
 ## revert
 
