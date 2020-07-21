@@ -1,0 +1,21 @@
+13:50
+
+
+
+@Eva Mujdricza-Maydt hi, I just saw that you added emm_* to the .gitignore in nlu-evaluation. I would like to suggest such things not to be added to the gitignore file. gitignore is tracked by the repository, so everyone will receive this change, and for some people this won't make sense. There's a way to exclude files/paths from git's tracking that only applies on your local repository copy, and that is .git/info/exclude. The syntax is the same as .gitignore only that file isn't tracked. It's entirely yours, so you can exclude whatever you need in there without a need to put this into a commit 
+
+for comparison, here's what I have in my exclude file - you can see that if I had added all of that into the gitignore (and everybody else would, too), the gitignore would get cluttered:
+
+# git ls-files --others --exclude-from=.git/info/exclude
+# Lines that start with '#' are comments.
+# For a project mostly in C, the following would be a good set of
+# exclude patterns (uncomment them if you want to use them):
+# *.[oa]
+# *~
+venv/
+Makefile
+todo.md
+.ipynb_checkpoints
+notebooks/*
+Show More
+(tut mir leid dass es englisch ist, wollte es erst in nem channel abschicken und hab dann gedacht, ich schick dir das einfach mal privat  )

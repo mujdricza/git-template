@@ -167,7 +167,7 @@ To reset only one file:
 `git checkout HEAD -- my-file.txt`
 
 
-- Another recommendation: <https://www.freecodecamp.org/forum/t/git-pull-how-to-override-local-files-with-git-pull/13216>
+- Another recommendation (this works): <https://www.freecodecamp.org/forum/t/git-pull-how-to-override-local-files-with-git-pull/13216>
 
 ```
 git fetch --all
