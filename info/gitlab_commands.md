@@ -122,7 +122,13 @@ git add <changes in mybranch>
 git commit -m "<message on changes in mybranch>"
 git checkout master
 git merge mybranch
-git branch -d mybranch
+git branch -d mybranch  # deleting the local branch
+```
+
+Delete (also a merged) branch on remote (= origin): https://stackoverflow.com/questions/2003505/how-do-i-delete-a-git-branch-locally-and-remotely
+```
+git push origin --delete mybranch
+git push origin -d mybranch
 ```
 
 <https://devconnected.com/how-to-set-upstream-branch-on-git/>
