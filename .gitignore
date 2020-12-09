@@ -35,6 +35,11 @@ __*/
 *.py[co]
 __pycache__/
 
+# Jupyter notebooks #
+#####################
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*.ipynb
+
 # IDE #
 #######
 # for PyCharm

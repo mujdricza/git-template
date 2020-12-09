@@ -244,6 +244,21 @@ The removal of the file from the head revision will happen on the next commit.
 
 WARNING: While this will not remove the physical file from your local, it will remove the files from other developers machines on next git pull.
 
+## stash
+
+If you would like to keep your local changes, but in the same time you need a `pull`:
+
+```
+git stash 
+--> put your local changes on the side
+git stash list
+--> check the current stash list: you will see your last changes under the name stash@{0} 
+git pull
+--> getting the newest remote changes
+git stash apply stash@{0}
+--> apply your local changes to the new state
+```
+
 ## revert
 
 See e.g. [https://www.hostingadvice.com/how-to/git-rollback-commit/](https://www.hostingadvice.com/how-to/git-rollback-commit/)
@@ -361,4 +376,54 @@ git push origin --delete <tagname>
 
 If you want to view the versions of files a tag is pointing to, you can do a `git checkout <tagname>` of that tag, although this puts your repository in “detached HEAD” state, which has some ill side effects.
 To make a new branch with that tag: `git checkout -b <new-branch>`.
+
+
+# Submodule
+
+https://git-scm.com/docs/git-submodule
+
+Install submodul: TODO check
+
+`git submodule add <path-to-submodule.git>`
+
+`git submodule update --init --recursive`
+
+Delete submodul:
+
+`git rm -rf <submodulname>`
+
+
+# Stash
+
+https://www.freecodecamp.org/news/git-stash-explained/
+
+If you have local changes which should not block a `pull`, and should be applied after a `pull` again.
+
+Save local changes:
+`git stash save "optional message"`
+
+List all stash-status:
+`git stash list`
+
+Show a specific stash-status:
+`git stash show -p stash@{0}`
+
+Apply the stash-status: 
+* applies the changes and leaves a copy in the stash:
+`git stash apply STASH-NAME` 
+  * apply a particular stash no from stash list: `git stash apply stash@{1}`
+
+* applies the changes and removes the files from the stash:
+  * a named status: `git stash pop STASH-NAME`
+
+  * apply top of stash stack  `git stash pop` 
+
+
+Delete Stashed Changes without applying them:
+
+* one status: 
+`git stash drop STASH-NAME`
+
+* clear the entire stash:
+`git stash clear`
 
