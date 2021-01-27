@@ -97,7 +97,15 @@ Note that some regular-expression-like syntax is allowed. `git add .` adds and u
 
 
 ## branches
-TODO
+
+Show branches
+```
+git branch  # local
+git branch --remote  # remote
+git branch -r
+git branch --all  # local and remote
+git branch -a 
+```
 
 Creating a new branch and switching to it:
 ```
@@ -120,6 +128,8 @@ Push your changes in `mybranch`, merge with `master`, and delete `mybranch`:
 ```
 git add <changes in mybranch>
 git commit -m "<message on changes in mybranch>"
+git push
+
 git checkout master
 git merge mybranch
 git branch -d mybranch  # deleting the local branch
