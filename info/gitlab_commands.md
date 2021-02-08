@@ -55,7 +55,7 @@ checks whether there are changes since your last activity on the repository.
 git pull <remote> <branch>
 ```
 
-E.g. get the master (default) branch of the `origin` ('central') repository (EMM why it is called origin?):
+E.g. get the master (default) branch of the `origin` ('central') repository:
 
 ```
 git pull origin master
@@ -303,8 +303,25 @@ git revert 1a890e7
 
 ```
 
+## Update branch with master status
 
-## Setup the project, and pay attention to
+
+https://docs.microsoft.com/en-us/azure/devops/repos/git/pulling?view=azure-devops&tabs=command-line#update-your-branch-with-the-latest-changes-from-master
+https://docs.microsoft.com/en-us/azure/devops/repos/git/pulling?view=azure-devops&tabs=command-line#update-your-branch-with-the-latest-changes-from-main
+
+To merge the latest changes from main into your branch, in this example named users/jamal/readme-fix, you can use the following commands:
+
+```
+git checkout mybranch
+git pull origin master
+...
+git push
+```
+
+If there are any merge conflicts, git shows you after the pull. Resolve the merge commits before you continue. When you're ready to push your local commits, including your new merge commit, to the remote server, run git push.
+
+
+# Setup the project, and pay attention to
 
 ## config
 
@@ -436,4 +453,5 @@ Delete Stashed Changes without applying them:
 
 * clear the entire stash:
 `git stash clear`
+
 
