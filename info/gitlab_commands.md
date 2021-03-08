@@ -454,4 +454,5 @@ Delete Stashed Changes without applying them:
 * clear the entire stash:
 `git stash clear`
 
-
+* stash of submodules
+`git submodule foreach 'git stash'`
