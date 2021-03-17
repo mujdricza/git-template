@@ -420,6 +420,9 @@ Delete submodul:
 `git rm -rf <submodulname>`
 
 
+Install a specific commit for a submodule: e.g.
+`pip install git+https://smarthub-wbench.wesp.telekom.net/gitlab/nlu-coli/miscaux.git@f1b56a46c8a1abe5e489a2f50870e4ec92523947#egg=dataset&subdirectory=dataset`
+
 # Stash
 
 https://www.freecodecamp.org/news/git-stash-explained/
@@ -456,3 +459,30 @@ Delete Stashed Changes without applying them:
 
 * stash of submodules
 `git submodule foreach 'git stash'`
+
+
+# Worktree
+
+* See 
+  * https://smarthub-wbench.workbench.telekom.de/gitlab/alexander.blesius/git_worktree_tutorial
+  * https://git-scm.com/docs/git-worktree
+* Worktrees lets you check out more than one branch/commit at once (called a "working tree").
+* Worktrees don't allow you to check out the same branch several times
+   * You can checkout each branch including master, if there is no other worktree currently using it.
+   * you'll get an error that the branch is already checked out at the other path (prevents you from accidentally overwriting work).
+
+* list of worktrees
+    ```
+    git worktree list
+    ```
+* create new worktree for a branch
+    ```
+    git checkout -b <branch_name>
+    git checkout master  # to avoid conflicts with the branch <branch_name>
+    git worktree add <path_to_repo_with_worktree> <branch_name>
+    cd <path_to_repo_with_worktree>  # in this path, the branch <branch_name> is checked out
+  ```
+* remove worktree
+   ```
+   git worktree remove <path_to_repo_wit_worktree>
+   ```
