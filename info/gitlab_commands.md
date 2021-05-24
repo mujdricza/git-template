@@ -118,6 +118,20 @@ git checkout -b mybranch
 git checkout -b mybranch master
 ```
 
+Checkout an existing remote branch:
+```
+git checkout --track origin/theirbranch
+
+e.g.
+
+git checkout --track origin/newsletter
+```
+Branch newsletter set up to track remote branch newsletter from origin.
+Switched to a new branch 'newsletter'
+
+Based on the remote branch "origin/newsletter", we now have a new local branch named "newsletter".
+
+
 Switch to an existing branch:
 ```
 git checkout <mybranch>
@@ -144,7 +158,31 @@ git push origin -d mybranch
 <https://devconnected.com/how-to-set-upstream-branch-on-git/>
 ```
 git push -u origin mybranch
+(the same as)
+git push --set-upstream origin mybranch
 ```
+
+To create the remote branch `mybranch` in one step with the first push of the local branch `mybranch`:
+```
+$ git push --set-upstream origin mybranch:refs/heads/mybranch
+$ git push --set-upstream origin mybranch
+```
+
+How do I rename a local and remote branch?
+
+```
+git branch -m oldname newname
+git push origin :oldname newname
+git branch --set-upstream-to=origin/newname newname
+```
+
+How do I rename a local branch whose remote tracking branch has changed its name?
+
+```
+git branch -m oldname newname
+git branch --set-upstream-to=origin/newname newname
+```
+
 
 See
 - [https://de.atlassian.com/git/tutorials/using-branches/git-checkout](https://de.atlassian.com/git/tutorials/using-branches/git-checkout)
@@ -415,13 +453,32 @@ Install submodul: TODO check
 
 `git submodule update --init --recursive`
 
-Delete submodul:
-
-`git rm -rf <submodulname>`
 
 
 Install a specific commit for a submodule: e.g.
 `pip install git+https://smarthub-wbench.wesp.telekom.net/gitlab/nlu-coli/miscaux.git@f1b56a46c8a1abe5e489a2f50870e4ec92523947#egg=dataset&subdirectory=dataset`
+
+Update submodule
+
+`git submodule foreach git pull origin master`
+
+* If a submodule has submodules: `git submodule foreach --recursive git pull origin master`
+
+Also: `git submodule update --remote --merge`
+
+See: https://stackoverflow.com/questions/5828324/update-git-submodule-to-latest-commit-on-origin
+
+
+Delete submodule: (https://www.atlassian.com/git/articles/core-concept-workflows-and-tips)
+
+* Delete the relevant line from the `.gitmodules` file.
+* Delete the relevant section from `.git/config`.
+* Run `git rm --cached path_to_submodule` (no trailing slash).
+* Commit and delete the now untracked submodule files.
+
+`git rm -rf <submodulname>`
+
+
 
 # Stash
 
@@ -475,9 +532,15 @@ Delete Stashed Changes without applying them:
     ```
     git worktree list
     ```
-* create new worktree for a branch
+* checkout a new branch or an existing one from remote
     ```
     git checkout -b <branch_name>
+    or
+    git checkout --track origin/<branch_name>
+    ```
+* create new worktree for the branch
+    ```
+    
     git checkout master  # to avoid conflicts with the branch <branch_name>
     git worktree add <path_to_repo_with_worktree> <branch_name>
     cd <path_to_repo_with_worktree>  # in this path, the branch <branch_name> is checked out
@@ -499,4 +562,16 @@ git checkout feature/feature_b
 git pull
 git checkout feature/feature_a
 git merge feature/feature_b
+```
+
+# Caching credentials
+
+https://git-scm.com/docs/git-credential-cache
+
+```
+git config --global credential.helper cache
+```
+You can specify a one hour (=3600 seconds) timeout like this:
+```
+git config --global credential.helper 'cache --timeout=3600'
 ```
