@@ -550,6 +550,28 @@ Delete Stashed Changes without applying them:
    git worktree remove <path_to_repo_wit_worktree>
    ```
 
+## Worktree with PyCharm and WSL2
+
+Use Case: On Windows 10, you are using WSL2 (Ubuntu), and git from it. You also have Git-for-Win, and you are using PyCharm as IDE.
+* PyCharm is using Git-for-Win internally (see https://intellij-support.jetbrains.com/hc/en-us/community/posts/360000134610-Support-for-git-worktree).
+
+Problem: If the worktree is created by WSL-git, the paths in the following ordners are linux-styled. Thus, PyCharm cannot interpret them, and the Git path under "File/Settings/Version Control" is marked as invalid.
+
+Solutions:
+* Either create the worktree with Git-for-Win, and use the Git-for-Win terminal for git processes.
+* Or adjust the paths:
+  * `.../<path-to-worktree>/.git`: 
+    * original: `gitdir: /mnt/c/<path-to-main-repo>/.git/worktrees/<worktree-name>`
+    * adjusted: `gitdir: C:/<path-to-main-repo>/.git/worktrees/<worktree-name>`
+    * NOTE that this line should be the only one in this file
+  * `.../<path-to-main-repo>/.git/worktrees/<wortree-name>/gitdir`:
+    * original: `/mnt/c/<path-to-worktree/.git`
+    * adjusted: `C:/<path-to-worktree/.git`
+* Note that after the path adjustments, the WSL terminal won't recognize the worktree path as a git path!
+* Thus, use the Git-for-Win terminal for git processes.
+
+
+
 # Merge feature branch in another feature branch
 
 * https://stackoverflow.com/questions/11582894/how-do-i-merge-another-developers-branch-into-mine
