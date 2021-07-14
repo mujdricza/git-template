@@ -111,19 +111,21 @@ Creating a new branch and switching to it:
 ```
 git checkout -b <new mybranch>
 git checkout -b <new mybranch> <from existing branch>
-
 e.g. 
-
 git checkout -b mybranch
 git checkout -b mybranch master
+```
+
+Creating a new branch locally and remote:
+```
+git checkout -b newbranch
+git push --set-upstream origin newbranch
 ```
 
 Checkout an existing remote branch:
 ```
 git checkout --track origin/theirbranch
-
 e.g.
-
 git checkout --track origin/newsletter
 ```
 Branch newsletter set up to track remote branch newsletter from origin.
