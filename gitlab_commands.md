@@ -239,6 +239,44 @@ HEAD is now at a795dfd 20200128
 eva@laptop:/mnt/d/uni/GSRL/github/srl4srl-results$
 ```
 
+### Conflict example 
+
+```
+git checkout mybranch
+git pull origin master  # merging master into the current mybranch
+...
+Auto-merging gt_tools/st_functionalities.py
+CONFLICT (content): Merge conflict in gt_tools/st_functionalities.py
+error: Failed to merge in the changes.
+Patch failed at 0003 simple filtering
+hint: Use 'git am --show-current-patch' to see the failed patch
+Resolve all conflicts manually, mark them as resolved with
+"git add/rm <conflicted_files>", then run "git rebase --continue".
+You can instead skip this commit: run "git rebase --skip".
+To abort and get back to the state before "git rebase", run "git rebase --abort".
+```
+Then do:
+* Do manual inspection and changes at the lines marked with 
+  ```
+   <<<<<<< HEAD
+  changes in origin master
+  =======
+  local changes in mybranch
+  >>>>>>> branch change name
+  ```
+  * Select one of the status above or below the `=======` line, maybe a mixture of them
+  * at the end, the whole area between the angle brackets should show only one status.
+* Next step:
+   ```
+  git add conflictedfile
+  git rebase --continue
+  ```
+* If any other merge conflict there, do the same for them, too.
+* If no further conflict shown: `git pull` --> maybe further conflicts will be shown again
+* Finally: `git push`
+
+
+
 ## gitignore
 
 The repository-specific option to ignore specific files or folders is to create a file named `.gitignore` in the root folder of the repository.
