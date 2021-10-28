@@ -275,6 +275,31 @@ Then do:
 * If no further conflict shown: `git pull` --> maybe further conflicts will be shown again
 * Finally: `git push`
 
+Note that `git rebase` handles each commit step by step, thus, you maybe have to handle the same conflict after each rebasing step.
+
+### merge conflicts
+
+A possible solution:
+
+* merge `master` into `mybranch`
+  ```
+  git checkout mybranch
+  git merge master
+  ```
+
+* if you get conflicts: solve conflicts in the concerned files
+* then push your changes
+  ```
+  git add <changed files>
+  git commit -m "changes"
+  git push
+  ```
+* if there are no conflicts any more, merge `mybranch` into `master`
+  ```
+  git checkout master
+  git merge mybranch
+  ```
+
 
 
 ## gitignore
