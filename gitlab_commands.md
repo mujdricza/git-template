@@ -200,6 +200,12 @@ Local changes can be reverted to the last global state with:
 git checkout -- .
 ```
 
+To revert local changes after an `add` command, but not `pushed` yet:
+
+```
+git reset HEAD <file name>
+```
+
 See more on `reset` and `revert` [https://de.atlassian.com/git/tutorials/undoing-changes](https://de.atlassian.com/git/tutorials/undoing-changes)
 
 
