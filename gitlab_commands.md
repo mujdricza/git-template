@@ -670,3 +670,37 @@ You can specify a one hour (=3600 seconds) timeout like this:
 ```
 git config --global credential.helper 'cache --timeout=3600'
 ```
+
+# Resolve 'x commit(s) behind master'
+
+https://stackoverflow.com/questions/34118404/what-i-can-do-to-resolve-1-commit-behind-master
+
+Local Master branch is behind the remote Master branch
+
+This means every locally created branch is behind.
+
+Before preceding, you have to commit or stash all the changes you made on the branch behind commits.
+
+Solution:
+
+    Checkout your local Master branch
+
+    git checkout master
+
+    Pull from remote Master branch
+
+    git pull origin master
+
+Now your local Master is in sync with the remote branch. As a result of the above command, other local branches branched from the previous local Master branch are not in sync. To fix that:
+
+    Checkout the branch that is behind your local Master branch
+
+    git checkout BranchNameBehindCommit
+
+    Merge with the local Master branch
+
+    git merge master  // Now your branch is in sync with the local Master branch
+
+If this branch is on the remote repository, you have to push your changes.
+
+    git push origin branchBehindCommit
