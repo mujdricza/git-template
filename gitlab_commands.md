@@ -291,18 +291,20 @@ A possible solution:
 
 * merge `master` into `mybranch`
   ```
+  git checkout master
+  git pull
   git checkout mybranch
   git merge master
   ```
-
+* if you don't get conflicts: `git push`
 * if you get conflicts: solve conflicts in the concerned files
-* then push your changes
-  ```
-  git add <changed files>
-  git commit -m "changes"
-  git push
-  ```
-* if there are no conflicts any more, merge `mybranch` into `master`
+  * then push your changes
+    ```
+    git add <changed files>
+    git commit -m "changes"
+    git push
+    ```
+* Additionally, if you then would like to merge the branch into the master: if there are no conflicts any more, merge `mybranch` into `master`
   ```
   git checkout master
   git merge mybranch
